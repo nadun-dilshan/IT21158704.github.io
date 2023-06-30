@@ -44,9 +44,9 @@ ScrollReveal({
 
 
 ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box', { origin: 'bottom' });
-ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
-ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, #contact-whatsapp', { origin: 'bottom' });
+ScrollReveal().reveal('.home-content h1, .about-img, #contact-email', { origin: 'left' });
+ScrollReveal().reveal('.home-content p, .about-content, #contact-fb', { origin: 'right' });
 
 
 const typed = new Typed('.multiple-text',{
