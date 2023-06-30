@@ -509,15 +509,18 @@ span{
     .portfolio-container {
         grid-template-columns: 1fr;
     }
+    
+    .contact-container {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 @media (max-width: 450px){
     html {
         font-size: 50%;
-    }
-
-    .contact from .input-box input{
-        width: 100%;
     }
 }
 
