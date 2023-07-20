@@ -58,11 +58,11 @@ const typed = new Typed('.multiple-text',{
 
 function toggleDarkMode() {
     const icon = document.getElementById('toggleDark');
-    icon.classList.toggle('bxs-sun');
-    icon.classList.toggle('bxs-moon');
+    icon.classList.toggle('bx-sun');
+    icon.classList.toggle('bx-moon');
 
     const root = document.documentElement;
-    if (icon.classList.contains('bxs-moon')) {
+    if (icon.classList.contains('bx-moon')) {
         root.style.setProperty('--bg-color', '#d2d1e9');
         root.style.setProperty('--second-bg-color', '#e2e1ec');
         root.style.setProperty('--text-color', '#2f3133');
