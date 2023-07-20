@@ -24,11 +24,12 @@
     font-family: 'poppins', sans-serif;
 }
 
+/* dark mode */
 :root {
-    --bg-color: #1f242d;
-    --second-bg-color: #323946;
-    --text-color: #fff;
-    --main-color: #0ef;
+    --bg-color: #2C3333;
+    --second-bg-color: #2E4F4F;
+    --text-color: #CBE4DE;
+    --main-color: #11aaaf;
 }
 
 html {
