@@ -89,6 +89,13 @@ section {
     display: none;
 }
 
+#toggleDarkM {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+}
+
+
 .home {
     display: flex;
     justify-content: center;
@@ -443,6 +450,14 @@ span{
 @media (max-width: 768px) {
     #menu-icon{
         display: block;
+    }
+
+    #toggleDarkM{
+        display: block;
+    }
+
+    #toggleDark{
+        display: none;
     }
 
     .navbar {
