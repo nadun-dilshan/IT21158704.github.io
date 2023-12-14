@@ -123,7 +123,7 @@ span{
 }
 
 .home-img img {
-    width: 35vw;
+    width: 25vw;
     animation: floatImage 4s ease-in-out infinite;
 }
 
@@ -190,7 +190,7 @@ span{
 }
 
 .about-img img {
-    width: 34vw;
+    width: 30vw;
 }
 
 .heading {
