@@ -152,23 +152,23 @@ VanillaTilt.init(document.querySelectorAll('.portfolio-box'), {
 
 // Enhanced Contact Box Interactions
 document.getElementById('contact-whatsapp').addEventListener('click', () => {
-    window.open('https://wa.me/1234567890', '_blank');
+    window.open('https://wa.me/+94765220104', '_blank');
 });
 
 document.getElementById('contact-email').addEventListener('click', () => {
-    window.location.href = 'mailto:nadun@example.com';
+    window.location.href = 'mailto:nadun.dev@outlook.com';
 });
 
 document.getElementById('contact-fb').addEventListener('click', () => {
-    window.open('https://facebook.com/nadun', '_blank');
+    window.open('https://www.facebook.com/KTDNadun', '_blank');
 });
 
 document.getElementById('contact-linkedin')?.addEventListener('click', () => {
-    window.open('https://linkedin.com/in/nadun', '_blank');
+    window.open('https://www.linkedin.com/in/nadun-dilshan/', '_blank');
 });
 
 document.getElementById('contact-github')?.addEventListener('click', () => {
-    window.open('https://github.com/nadun', '_blank');
+    window.open('https://github.com/IT21158704', '_blank');
 });
 
 // Enhanced Web3Forms Submission with better UX
@@ -343,14 +343,14 @@ document.querySelectorAll('.project-link').forEach((link, index) => {
         e.preventDefault();
         // Add your actual project URLs here
         const projectUrls = [
-            'https://github.com/nadun/darmapala-lms',
-            'https://github.com/nadun/leave-management',
-            'https://github.com/nadun/ecommerce-app',
-            'https://github.com/nadun/employee-management',
-            'https://github.com/nadun/fuel-station-management',
-            'https://github.com/nadun/job-portal-app',
-            'https://github.com/nadun/event-management',
-            'https://github.com/nadun/artsy-shots'
+            'https://github.com/IT21158704/LMS-System.git',
+            'https://github.com/IT21158704/Leave-Management-System',
+            'https://github.com/IT21158704/dry-food-mart.git',
+            // 'https://github.com/nadun/employee-management',
+            'https://github.com/IT21158704/Fuel-Station-Management-System-ITP-Project.git',
+            'https://github.com/IT21158704/Quick-Job.git',
+            'https://github.com/IT21158704/Online-Event-Management-System.git',
+            'https://github.com/IT21158704/Photography-Event-Management-System.git'
         ];
 
         if (projectUrls[index]) {
