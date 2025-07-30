@@ -168,7 +168,7 @@ document.getElementById('contact-linkedin')?.addEventListener('click', () => {
 });
 
 document.getElementById('contact-github')?.addEventListener('click', () => {
-    window.open('https://github.com/IT21158704', '_blank');
+    window.open('https://github.com/nadun-dilshan', '_blank');
 });
 
 // Enhanced Web3Forms Submission with better UX
@@ -343,14 +343,15 @@ document.querySelectorAll('.project-link').forEach((link, index) => {
         e.preventDefault();
         // Add your actual project URLs here
         const projectUrls = [
-            'https://github.com/IT21158704/LMS-System.git',
-            'https://github.com/IT21158704/Leave-Management-System',
-            'https://github.com/IT21158704/dry-food-mart.git',
+            'https://github.com/nadun-dilshan/Leave-Management-System',
+            'https://zeylonia.netlify.app/',
+            'https://github.com/nadun-dilshan/LMS-System.git',
+            'https://github.com/nadun-dilshan/dry-food-mart.git',
             // 'https://github.com/nadun/employee-management',
-            'https://github.com/IT21158704/Fuel-Station-Management-System-ITP-Project.git',
-            'https://github.com/IT21158704/Quick-Job.git',
-            'https://github.com/IT21158704/Online-Event-Management-System.git',
-            'https://github.com/IT21158704/Photography-Event-Management-System.git'
+            'https://github.com/nadun-dilshan/Fuel-Station-Management-System-ITP-Project.git',
+            'https://github.com/nadun-dilshan/Quick-Job-Android-App-MAD',
+            'https://github.com/nadun-dilshan/Online-Event-Management-System.git',
+            'https://github.com/nadun-dilshan/Photography-Event-Management-System.git'
         ];
 
         if (projectUrls[index]) {
