@@ -1,4 +1,4 @@
-# Nadun Dilshan — Portfolio
+# Nadun Dilshan - Portfolio
 
 Personal portfolio of **Nadun Dilshan**, Associate Software Engineer. Built with the modern Next.js App Router stack.
 
