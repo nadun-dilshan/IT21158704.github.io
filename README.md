@@ -48,6 +48,7 @@ lib/
   data.ts           # all content (profile, experience, skills, projects, …)
 public/
   images/, Nadun_Dilshan_CV.pdf
+
 legacy/             # the previous static HTML/CSS/JS site (archived for reference)
 ```
 
