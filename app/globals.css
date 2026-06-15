@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------- */
+/*  Theme tokens                                                               */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --bg-color: #0a0a0f;
+  --second-bg-color: #151520;
+  --text-color: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --main-color: #00c4cc;
+  --accent-color: #6246e9;
+  --gradient-1: linear-gradient(135deg, #00c4cc, #6246e9);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --header-bg: rgba(10, 10, 15, 0.7);
+}
+
+[data-theme="light"] {
+  --bg-color: #eef1f5;
+  --second-bg-color: #ffffff;
+  --text-color: #15212b;
+  --text-muted: rgba(21, 33, 43, 0.7);
+  --main-color: #0e8c93;
+  --accent-color: #6d28d9;
+  --gradient-1: linear-gradient(135deg, #0e8c93, #6d28d9);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(21, 33, 43, 0.1);
+  --header-bg: rgba(255, 255, 255, 0.7);
+}
+
+@theme inline {
+  --color-bg: var(--bg-color);
+  --color-second-bg: var(--second-bg-color);
+  --color-text: var(--text-color);
+  --color-main: var(--main-color);
+  --color-accent: var(--accent-color);
+  --font-display: var(--font-orbitron), monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Base                                                                       */
+/* -------------------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Hide scrollbar but keep scrolling */
+::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::selection {
+  background: var(--main-color);
+  color: #fff;
+}
+
+/* Hide the native cursor only on devices with a precise pointer (desktop) */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor,
+  body.custom-cursor * {
+    cursor: none;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Reusable utilities                                                         */
+/* -------------------------------------------------------------------------- */
+
+.gradient-text {
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Animated background + particles                                            */
+/* -------------------------------------------------------------------------- */
+
+.bg-animation {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-animation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0, 196, 204, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(98, 70, 233, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.06) 0%, transparent 50%);
+  animation: bgMove 22s ease-in-out infinite;
+}
+
+@keyframes bgMove {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(180deg); }
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 9999px;
+  background: var(--main-color);
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10%, 90% { opacity: 0.8; }
+  100% { transform: translateY(-100vh) translateX(60px); opacity: 0; }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Custom cursor                                                              */
+/* -------------------------------------------------------------------------- */
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--main-color);
+}
+
+.cursor-ring {
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--main-color);
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease;
+}
+
+.cursor-ring.hovered {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 196, 204, 0.12);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Floating hero image                                                        */
+/* -------------------------------------------------------------------------- */
+
+@keyframes floatImage {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(2deg); }
+}
+
+.float-image {
+  animation: floatImage 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-image,
+  .bg-animation::before,
+  .particle {
+    animation: none;
+  }
+}
