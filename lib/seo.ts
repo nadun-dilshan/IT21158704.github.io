@@ -10,7 +10,7 @@ import {
 /** Canonical production origin. Update if the domain changes. */
 export const SITE_URL = "https://nadun.me";
 
-export const OG_IMAGE = "/images/og-image.jpg";
+export const OG_IMAGE = "/images/og-image.webp";
 
 /** Flattened skill list, used for keywords + JSON-LD `knowsAbout`. */
 export const allSkills = Array.from(
