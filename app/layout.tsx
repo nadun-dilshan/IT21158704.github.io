@@ -1,24 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Orbitron } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import { profile } from "@/lib/data";
 import { SITE_URL, OG_IMAGE, keywords, buildJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
   display: "swap",
 });
 
-const orbitron = Orbitron({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  variable: "--font-orbitron",
+  weight: ["500", "600", "700"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
-const TITLE = `${profile.name} — ${profile.role}`;
+const TITLE = `${profile.name} - ${profile.role}`;
 const DESCRIPTION =
   "Portfolio of Nadun Dilshan, an Associate Software Engineer specializing in full-stack development with Next.js, React, Node.js, Go, and PostgreSQL. Based in Malabe, Sri Lanka.";
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
-    template: `%s — ${profile.name}`,
+    template: `%s - ${profile.name}`,
   },
   description: DESCRIPTION,
   applicationName: `${profile.name} Portfolio`,
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: `${profile.name} — ${profile.role}`,
+        alt: `${profile.name} - ${profile.role}`,
       },
     ],
   },
@@ -74,19 +74,12 @@ export const metadata: Metadata = {
     images: [OG_IMAGE],
     creator: "@nadun-dilshan",
   },
-  icons: {
-    icon: [
-      { url: "/images/favicon.ico" },
-      { url: "/images/nadun.jpg", type: "image/jpeg" },
-    ],
-    apple: "/images/nadun.jpg",
-  },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0f" },
-    { media: "(prefers-color-scheme: light)", color: "#eef1f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -96,7 +89,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${orbitron.variable}`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
         <script
           type="application/ld+json"

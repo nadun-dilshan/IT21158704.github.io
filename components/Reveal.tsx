@@ -1,47 +1,48 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { useEffect, useRef } from "react";
 
-type Direction = "up" | "down" | "left" | "right" | "none";
-
-const offset: Record<Direction, { x: number; y: number }> = {
-  up: { x: 0, y: 60 },
-  down: { x: 0, y: -60 },
-  left: { x: 60, y: 0 },
-  right: { x: -60, y: 0 },
-  none: { x: 0, y: 0 },
-};
-
+/**
+ * Scroll-reveal wrapper: adds `.is-visible` when the element enters the
+ * viewport. The animation itself is pure CSS (see globals.css), so this
+ * replaces framer-motion at a fraction of the bundle cost.
+ */
 export default function Reveal({
   children,
-  direction = "up",
   delay = 0,
-  className,
-}: {
+  className = "",
+}: Readonly<{
   children: React.ReactNode;
-  direction?: Direction;
   delay?: number;
   className?: string;
-}) {
-  const variants: Variants = {
-    hidden: { opacity: 0, ...offset[direction] },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: { duration: 0.7, delay, ease: [0.25, 0.4, 0.25, 1] },
-    },
-  };
+}>) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("is-visible");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <motion.div
-      className={className}
-      variants={variants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+    <div
+      ref={ref}
+      className={`reveal ${className}`}
+      style={delay ? ({ "--reveal-delay": `${delay}s` } as React.CSSProperties) : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

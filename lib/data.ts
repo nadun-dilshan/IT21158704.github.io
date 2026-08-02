@@ -29,8 +29,8 @@ export const profile = {
   phoneRaw: "94765220104",
   website: "https://nadun.me",
   cv: "/Nadun_Dilshan_CV.pdf",
-  avatar: "/images/nadun.jpg",
-  aboutImage: "/images/nadun_1.jpg",
+  avatar: "/images/nadun-dilshan.webp",
+  aboutImage: "/images/nadun-dilshan-software-engineer.webp",
   tagline:
     "Software Engineering graduate with 1.3+ years of industry experience designing, developing, and maintaining modern, scalable web applications.",
   heroDescription:
@@ -209,6 +209,8 @@ export type Project = {
   title: string;
   description: string;
   image: string;
+  /** Descriptive alt text - used for accessibility and Google Images SEO. */
+  imageAlt: string;
   tags: string[];
   link: string;
   linkLabel?: string;
@@ -219,7 +221,9 @@ export const projects: Project[] = [
     title: "Guardo - Authentication SDK",
     description:
       "A production-ready authentication SDK for Node.js & Next.js apps, with secure auth, encryption, and token handling packaged for easy integration.",
-    image: "/images/guardo.webp",
+    image: "/images/guardo-authentication-sdk.webp",
+    imageAlt:
+      "Guardo authentication SDK for Node.js and Next.js by Nadun Dilshan - landing page screenshot",
     tags: ["Node.js", "Next.js", "SDK", "Security"],
     link: "https://guardo.nadun.me",
     linkLabel: "Live Demo",
@@ -228,7 +232,9 @@ export const projects: Project[] = [
     title: "Leave Management System",
     description:
       "Leave management solution for the Ministry of Fisheries, Sri Lanka - role-based access, approval workflows, and PHPMailer email notifications.",
-    image: "/images/p6.png",
+    image: "/images/leave-management-system.webp",
+    imageAlt:
+      "Leave management system built for the Ministry of Fisheries Sri Lanka - dashboard screenshot",
     tags: ["PHP", "SQL", "PHPMailer"],
     link: "https://github.com/nadun-dilshan/Leave-Management-System",
   },
@@ -236,7 +242,9 @@ export const projects: Project[] = [
     title: "Learning Management System",
     description:
       "Full-stack LMS built with the MERN stack, Tailwind CSS, and Material UI featuring authentication, role identification, and rich dashboards.",
-    image: "/images/p1.png",
+    image: "/images/learning-management-system.webp",
+    imageAlt:
+      "MERN stack learning management system with dashboards - web app screenshot",
     tags: ["MERN", "Tailwind CSS", "Material UI"],
     link: "https://github.com/nadun-dilshan/LMS-System.git",
   },
@@ -244,7 +252,9 @@ export const projects: Project[] = [
     title: "E-Commerce Platform",
     description:
       "MERN e-commerce app with JWT auth, product management, search, favorites, cart, purchases, store ratings, and availability checks.",
-    image: "/images/p7.png",
+    image: "/images/ecommerce-platform.webp",
+    imageAlt:
+      "MERN e-commerce platform with cart and product management - storefront screenshot",
     tags: ["MERN", "JWT", "Material UI"],
     link: "https://github.com/nadun-dilshan/dry-food-mart.git",
   },
@@ -252,7 +262,9 @@ export const projects: Project[] = [
     title: "Zeylonia Marketplace",
     description:
       "Full-stack e-commerce marketplace for buying and selling, built with Next.js & TypeScript on the frontend and a Node.js / Express backend.",
-    image: "/images/p10.png",
+    image: "/images/zeylonia-marketplace.webp",
+    imageAlt:
+      "Zeylonia online marketplace built with Next.js and TypeScript - homepage screenshot",
     tags: ["Next.js", "TypeScript", "Express"],
     link: "https://zeylonia.netlify.app/",
     linkLabel: "Live Demo",
@@ -261,7 +273,9 @@ export const projects: Project[] = [
     title: "Event Management System",
     description:
       "Web-based event management platform built with Java Servlets and SQL, featuring user authorization, role identification, and dashboards.",
-    image: "/images/p3.png",
+    image: "/images/event-management-system.webp",
+    imageAlt:
+      "Event management platform built with Java Servlets - event listing screenshot",
     tags: ["Java Servlet", "SQL", "JSP"],
     link: "https://github.com/nadun-dilshan/Online-Event-Management-System.git",
   },
@@ -269,7 +283,9 @@ export const projects: Project[] = [
     title: "Job Portal - Android App",
     description:
       "Native Android job portal with seeker & employer registration, job applications, and employee search built with Kotlin in Android Studio.",
-    image: "/images/p5.png",
+    image: "/images/job-portal-android-app.webp",
+    imageAlt:
+      "Android job portal app built with Kotlin - mobile app screens",
     tags: ["Kotlin", "Android", "Mobile"],
     link: "https://github.com/nadun-dilshan/Quick-Job-Android-App-MAD",
   },
@@ -277,7 +293,9 @@ export const projects: Project[] = [
     title: "Fuel Station Management",
     description:
       "Real-time fuel station management system with inventory tracking, sales analytics, and automated reporting built on the MERN stack.",
-    image: "/images/p4.png",
+    image: "/images/fuel-station-management.webp",
+    imageAlt:
+      "Fuel station management system with sales analytics - dashboard screenshot",
     tags: ["MERN", "Analytics", "Inventory"],
     link: "https://github.com/nadun-dilshan/Fuel-Station-Management-System-ITP-Project.git",
   },

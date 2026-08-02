@@ -1,7 +1,4 @@
 import { ThemeProvider } from "@/components/ThemeProvider";
-import Preloader from "@/components/Preloader";
-import Particles from "@/components/Particles";
-import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -15,10 +12,7 @@ import Footer from "@/components/sections/Footer";
 export default function Home() {
   return (
     <ThemeProvider>
-      <Preloader />
-      <div className="bg-animation" aria-hidden />
-      <Particles />
-      <CustomCursor />
+      <div className="bg-glow" aria-hidden />
 
       <Navbar />
 
