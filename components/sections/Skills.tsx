@@ -7,31 +7,20 @@ export default function Skills() {
     <section
       id="skills"
       aria-label="Skills and technologies"
-      className="px-[6%] py-24"
-      style={{ background: "var(--second-bg-color)" }}
+      className="mx-auto max-w-5xl px-6 py-24"
     >
-      <SectionHeading>
-        Skills &amp; <span className="gradient-text">Technologies</span>
-      </SectionHeading>
+      <SectionHeading kicker="Skills">Technologies I work with</SectionHeading>
 
-      <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2">
         {skillGroups.map((group, i) => (
-          <Reveal key={group.title} direction="up" delay={i * 0.08}>
-            <div className="glass h-full rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--main-color)]">
-              <h3 className="mb-4 text-xl font-bold text-[var(--main-color)]">
+          <Reveal key={group.title} delay={(i % 2) * 0.05}>
+            <div className="card card-hover h-full p-6 sm:p-7">
+              <h3 className="mb-4 text-lg font-bold" style={{ color: "var(--accent)" }}>
                 {group.title}
               </h3>
-              <div className="flex flex-wrap gap-2.5">
+              <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 hover:scale-105"
-                    style={{
-                      background: "var(--glass-bg)",
-                      border: "1px solid var(--glass-border)",
-                    }}
-                    data-hover
-                  >
+                  <span key={skill} className="chip">
                     {skill}
                   </span>
                 ))}

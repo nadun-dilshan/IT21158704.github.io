@@ -1,41 +1,64 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { FiDownload } from "react-icons/fi";
-import { profile, socials, heroRoles } from "@/lib/data";
-import TypedText from "../TypedText";
+import { FiArrowDown, FiDownload } from "react-icons/fi";
+import { profile, socials } from "@/lib/data";
 
+/**
+ * Server-rendered hero - no client JS. The name, role, and description are
+ * real text in the initial HTML, which is what search engines index.
+ */
 export default function Hero() {
   return (
     <section
       id="home"
       aria-label="Introduction"
-      className="relative flex min-h-screen items-center justify-center gap-12 px-[6%] pt-32 pb-12 lg:flex-row flex-col-reverse"
+      className="mx-auto flex min-h-screen max-w-6xl flex-col-reverse items-center justify-center gap-12 px-6 pt-28 pb-16 lg:flex-row lg:gap-16"
     >
-      <motion.div
-        className="flex-1"
-        initial={{ opacity: 0, x: -60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h3 className="mb-2 text-2xl font-bold text-[var(--main-color)]">
-          Hello, I&apos;m
-        </h3>
-        <h1 className="font-display mb-4 text-5xl font-black leading-tight gradient-text sm:text-6xl xl:text-7xl">
-          {profile.name}
+      <div className="flex-1 text-center lg:text-left">
+        <span
+          className="mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-medium"
+          style={{
+            borderColor: "var(--border)",
+            background: "var(--surface)",
+            color: "var(--text-muted)",
+          }}
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+          </span>
+          <span>Open to new opportunities</span>
+        </span>
+
+        <h1 className="section-heading mb-4 text-5xl leading-[1.05] sm:text-6xl xl:text-7xl">
+          {profile.name.split(" ")[0]}{" "}
+          <span style={{ color: "var(--accent)" }}>
+            {profile.name.split(" ")[1]}
+          </span>
         </h1>
-        <div className="mb-6 text-2xl font-semibold sm:text-3xl">
-          <TypedText strings={heroRoles} />
-        </div>
+
+        <p className="mb-3 text-xl font-semibold sm:text-2xl">
+          {profile.role} · Full-Stack Developer
+        </p>
+
         <p
-          className="mb-8 max-w-xl text-lg leading-relaxed"
+          className="mx-auto mb-8 max-w-xl text-base leading-relaxed sm:text-lg lg:mx-0"
           style={{ color: "var(--text-muted)" }}
         >
           {profile.heroDescription}
         </p>
 
-        <div className="mb-8 flex gap-4">
+        <div className="mb-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+          <a href={profile.cv} download className="btn-primary">
+            <FiDownload aria-hidden />
+            Download CV
+          </a>
+          <a href="#projects" className="btn-secondary">
+            View Projects
+            <FiArrowDown aria-hidden />
+          </a>
+        </div>
+
+        <div className="flex items-center justify-center gap-3 lg:justify-start">
           {socials.map((social) => {
             const Icon = social.icon;
             return (
@@ -44,50 +67,39 @@ export default function Hero() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={social.label}
-                className="glass group relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full text-xl transition-all duration-300 hover:-translate-y-1"
-                style={{ color: "var(--main-color)" }}
+                aria-label={`${profile.name} on ${social.label}`}
+                className="card card-hover flex h-11 w-11 items-center justify-center rounded-full text-lg"
+                style={{ color: "var(--text-muted)" }}
               >
-                <span className="absolute inset-0 origin-left scale-x-0 bg-[image:var(--gradient-1)] transition-transform duration-300 group-hover:scale-x-100" />
-                <Icon className="relative z-10 transition-colors group-hover:text-white" />
+                <Icon aria-hidden />
               </a>
             );
           })}
         </div>
+      </div>
 
-        <a
-          href={profile.cv}
-          download
-          className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[image:var(--gradient-1)] px-8 py-4 text-base font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,196,204,0.4)]"
-        >
-          <FiDownload className="relative z-10" />
-          <span className="relative z-10">Download CV</span>
-        </a>
-      </motion.div>
-
-      <motion.div
-        className="flex flex-1 justify-center"
-        initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        <div className="relative flex items-center justify-center">
+      <div className="flex flex-1 justify-center lg:justify-end">
+        <div className="relative">
           <span
-            className="absolute h-72 w-72 rounded-full opacity-30 blur-3xl"
-            style={{ background: "var(--gradient-1)" }}
+            className="absolute -inset-6 rounded-full opacity-25 blur-3xl"
+            style={{ background: "var(--gradient)" }}
+            aria-hidden
           />
-          <div className="float-image relative z-10 h-[280px] w-[280px] overflow-hidden rounded-full border-[3px] border-[var(--main-color)] shadow-[0_0_50px_rgba(0,196,204,0.3)] sm:h-[340px] sm:w-[340px]">
+          <div
+            className="relative h-64 w-64 overflow-hidden rounded-full border sm:h-80 sm:w-80"
+            style={{ borderColor: "var(--border-strong)" }}
+          >
             <Image
               src={profile.avatar}
-              alt={profile.name}
+              alt={`${profile.name} - ${profile.role} based in ${profile.location}`}
               fill
               priority
-              sizes="340px"
+              sizes="(max-width: 640px) 256px, 320px"
               className="object-cover"
             />
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
