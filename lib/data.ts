@@ -224,12 +224,23 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Sellora - WhatsApp AI Commerce",
+    description:
+      "Multi-tenant SaaS that turns WhatsApp conversations into sales with multilingual AI product discovery, order taking, stock control, and merchant storefronts.",
+    image: "/images/sellora-whatsapp-ai-commerce.webp",
+    imageAlt:
+      "Sellora WhatsApp AI commerce platform for Sri Lankan businesses - product overview",
+    tags: ["Next.js", "TypeScript", "AI", "WhatsApp"],
+    link: "https://sellora.nadun.me",
+    linkLabel: "Live Demo",
+  },
+  {
     title: "Guardo - Authentication SDK",
     description:
-      "A production-ready authentication SDK for Node.js & Next.js apps, with secure auth, encryption, and token handling packaged for easy integration.",
+    "A production-ready authentication SDK for Node.js & Next.js apps, with secure auth, encryption, and token handling packaged for easy integration.",
     image: "/images/guardo-authentication-sdk.webp",
     imageAlt:
-      "Guardo authentication SDK for Node.js and Next.js by Nadun Dilshan - landing page screenshot",
+    "Guardo authentication SDK for Node.js and Next.js by Nadun Dilshan - landing page screenshot",
     tags: ["Node.js", "Next.js", "SDK", "Security"],
     link: "https://guardo.nadun.me",
     linkLabel: "Live Demo",
@@ -237,42 +248,43 @@ export const projects: Project[] = [
   {
     title: "Leave Management System",
     description:
-      "Leave management solution for the Ministry of Fisheries, Sri Lanka - role-based access, approval workflows, and PHPMailer email notifications.",
+    "Leave management solution for the Ministry of Fisheries, Sri Lanka - role-based access, approval workflows, and PHPMailer email notifications.",
     image: "/images/leave-management-system.webp",
     imageAlt:
-      "Leave management system built for the Ministry of Fisheries Sri Lanka - dashboard screenshot",
+    "Leave management system built for the Ministry of Fisheries Sri Lanka - dashboard screenshot",
     tags: ["PHP", "SQL", "PHPMailer"],
     link: "https://github.com/nadun-dilshan/Leave-Management-System",
   },
   {
     title: "Learning Management System",
     description:
-      "Full-stack LMS built with the MERN stack, Tailwind CSS, and Material UI featuring authentication, role identification, and rich dashboards.",
+    "Full-stack LMS built with the MERN stack, Tailwind CSS, and Material UI featuring authentication, role identification, and rich dashboards.",
     image: "/images/learning-management-system.webp",
     imageAlt:
-      "MERN stack learning management system with dashboards - web app screenshot",
+    "MERN stack learning management system with dashboards - web app screenshot",
     tags: ["MERN", "Tailwind CSS", "Material UI"],
     link: "https://github.com/nadun-dilshan/LMS-System.git",
   },
   {
-    title: "E-Commerce Platform",
-    description:
-      "MERN e-commerce app with JWT auth, product management, search, favorites, cart, purchases, store ratings, and availability checks.",
-    image: "/images/ecommerce-platform.webp",
-    imageAlt:
-      "MERN e-commerce platform with cart and product management - storefront screenshot",
-    tags: ["MERN", "JWT", "Material UI"],
-    link: "https://github.com/nadun-dilshan/dry-food-mart.git",
-  },
-  {
     title: "Zeylonia Marketplace",
     description:
-      "Full-stack e-commerce marketplace for buying and selling, built with Next.js & TypeScript on the frontend and a Node.js / Express backend.",
+    "Full-stack e-commerce marketplace for buying and selling, built with Next.js & TypeScript on the frontend and a Node.js / Express backend.",
     image: "/images/zeylonia-marketplace.webp",
     imageAlt:
-      "Zeylonia online marketplace built with Next.js and TypeScript - homepage screenshot",
+    "Zeylonia online marketplace built with Next.js and TypeScript - homepage screenshot",
     tags: ["Next.js", "TypeScript", "Express"],
     link: "https://zeylonia.netlify.app/",
+    linkLabel: "Live Demo",
+  },
+  {
+    title: "DOODLZ - Web3 Token Site",
+    description:
+      "A playful, illustration-led Web3 concept with an original character system, collection explorer, rarity views, and an interactive demo mint experience.",
+    image: "/images/doodlz-web3-token-site.png",
+    imageAlt:
+      "DOODLZ colorful Web3 token website with original illustrated characters",
+    tags: ["Next.js", "TypeScript", "Web3", "Motion"],
+    link: "https://demo.doodlz.nadun.me",
     linkLabel: "Live Demo",
   },
   {
