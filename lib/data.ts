@@ -224,6 +224,27 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Sellora - WhatsApp AI Commerce",
+    description:
+      "Multi-tenant SaaS that turns WhatsApp conversations into sales with multilingual AI product discovery, order taking, stock control, and merchant storefronts.",
+    image: "/images/sellora-whatsapp-ai-commerce.webp",
+    imageAlt:
+      "Sellora WhatsApp AI commerce platform for Sri Lankan businesses - product overview",
+    tags: ["Next.js", "TypeScript", "AI", "WhatsApp"],
+    link: "https://sellora.nadun.me",
+    linkLabel: "Live Demo",
+  },
+  {
+    title: "DOODLZ - Web3 Token Site",
+    description:
+      "A playful, illustration-led Web3 concept with an original character system, collection explorer, rarity views, and an interactive demo mint experience.",
+    image: "/images/doodlz-web3-token-site.png",
+    imageAlt:
+      "DOODLZ colorful Web3 token website with original illustrated characters",
+    tags: ["Next.js", "TypeScript", "Web3", "Motion"],
+    link: "https://github.com/nadun-dilshan/DOODLZ",
+  },
+  {
     title: "Guardo - Authentication SDK",
     description:
       "A production-ready authentication SDK for Node.js & Next.js apps, with secure auth, encryption, and token handling packaged for easy integration.",
@@ -253,16 +274,6 @@ export const projects: Project[] = [
       "MERN stack learning management system with dashboards - web app screenshot",
     tags: ["MERN", "Tailwind CSS", "Material UI"],
     link: "https://github.com/nadun-dilshan/LMS-System.git",
-  },
-  {
-    title: "E-Commerce Platform",
-    description:
-      "MERN e-commerce app with JWT auth, product management, search, favorites, cart, purchases, store ratings, and availability checks.",
-    image: "/images/ecommerce-platform.webp",
-    imageAlt:
-      "MERN e-commerce platform with cart and product management - storefront screenshot",
-    tags: ["MERN", "JWT", "Material UI"],
-    link: "https://github.com/nadun-dilshan/dry-food-mart.git",
   },
   {
     title: "Zeylonia Marketplace",
