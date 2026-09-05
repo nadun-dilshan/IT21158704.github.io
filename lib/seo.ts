@@ -103,5 +103,5 @@ export function buildJsonLd() {
 
 /** Section anchors used to build the sitemap. */
 export const sectionAnchors = navLinks
-  .map((l) => l.href)
+  .map((l) => l.href.replace(/^\//, ""))
   .filter((h) => h.startsWith("#"));

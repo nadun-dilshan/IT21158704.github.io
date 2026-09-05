@@ -1,23 +1,28 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import { navLinks, profile } from "@/lib/data";
 import { useTheme } from "./ThemeProvider";
 
+/** "/#about" -> "about" */
+const sectionId = (href: string) => href.replace(/^\/?#/, "");
+
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
-    const sectionIds = navLinks.map((l) => l.href.slice(1));
+    const sectionIds = navLinks.map((l) => sectionId(l.href));
     let ticking = false;
 
     const update = () => {
       setScrolled(window.scrollY > 24);
-      let current = sectionIds[0];
+      let current = pathname.startsWith("/projects/") ? "projects" : sectionIds[0];
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 220) current = id;
@@ -36,7 +41,7 @@ export default function Navbar() {
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [pathname]);
 
   const ThemeIcon = theme === "dark" ? FiSun : FiMoon;
 
@@ -53,7 +58,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a
-          href="#home"
+          href="/"
           className="section-heading text-xl font-bold tracking-tight"
           aria-label={`${profile.name} - home`}
         >
@@ -63,7 +68,7 @@ export default function Navbar() {
         {/* Desktop nav */}
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
           {navLinks.map((link) => {
-            const isActive = active === link.href.slice(1);
+            const isActive = active === sectionId(link.href);
             return (
               <a
                 key={link.href}
@@ -124,7 +129,7 @@ export default function Navbar() {
               className="rounded-lg px-3 py-3 text-base font-medium transition-colors"
               style={{
                 color:
-                  active === link.href.slice(1)
+                  active === sectionId(link.href)
                     ? "var(--accent)"
                     : "var(--text)",
               }}

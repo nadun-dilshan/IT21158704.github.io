@@ -66,14 +66,15 @@ export const heroRoles = [
 /*  Navigation                                                                 */
 /* -------------------------------------------------------------------------- */
 
+/** Hrefs are root-anchored so they also work from sub-pages like /projects/x. */
 export const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Services", href: "/#services" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -220,14 +221,17 @@ export type Project = {
   tags: string[];
   link: string;
   linkLabel?: string;
-  /** Shown in the large flagship grid; the rest go under "More projects". */
+  /** Shown first under "Products I've built"; the rest go under "More projects". */
   featured?: boolean;
+  /** Slug of a case study in lib/case-studies.ts - the card links there instead of externally. */
+  caseStudy?: string;
 };
 
 export const projects: Project[] = [
   {
     title: "Sellora - WhatsApp AI Commerce",
     featured: true,
+    caseStudy: "sellora",
     description:
       "Multi-tenant SaaS that turns WhatsApp conversations into sales with multilingual AI product discovery, order taking, stock control, and merchant storefronts.",
     image: "/images/sellora-whatsapp-ai-commerce.webp",
@@ -240,6 +244,7 @@ export const projects: Project[] = [
   {
     title: "Guardo - Authentication SDK",
     featured: true,
+    caseStudy: "guardo",
     description:
     "A production-ready authentication SDK for Node.js & Next.js apps, with secure auth, encryption, and token handling packaged for easy integration.",
     image: "/images/guardo-authentication-sdk.webp",

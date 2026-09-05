@@ -34,7 +34,7 @@ export default function Footer() {
           })}
         </div>
 
-        <a href="#home" aria-label="Back to top" className="btn-secondary px-4! py-2.5!">
+        <a href="#top" aria-label="Back to top" className="btn-secondary px-4! py-2.5!">
           <FiArrowUp aria-hidden />
           <span className="text-sm">Top</span>
         </a>

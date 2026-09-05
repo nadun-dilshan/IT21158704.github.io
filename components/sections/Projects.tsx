@@ -1,21 +1,26 @@
 import Image from "next/image";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import Link from "next/link";
+import { FiArrowRight, FiExternalLink, FiGithub } from "react-icons/fi";
 import { projects } from "@/lib/data";
 import SectionHeading from "../SectionHeading";
 import Reveal from "../Reveal";
 
 function ProjectCard({ project }: Readonly<{ project: (typeof projects)[number] }>) {
   const isLive = project.linkLabel === "Live Demo";
+  const hasCaseStudy = Boolean(project.caseStudy);
 
-  return (
-    <a
-      href={project.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${project.title} - ${isLive ? "open live demo" : "view source on GitHub"}`}
-      className="card card-hover group block h-full overflow-hidden"
-    >
+  const className = "card card-hover group block h-full overflow-hidden";
+  const body = (
+    <>
       <div className="relative aspect-[16/10] overflow-hidden">
+        {hasCaseStudy && (
+          <span
+            className="absolute top-3 left-3 z-10 rounded-full px-3 py-1 text-xs font-semibold"
+            style={{ background: "var(--accent)", color: "#08211d" }}
+          >
+            Case study
+          </span>
+        )}
         <Image
           src={project.image}
           alt={project.imageAlt}
@@ -33,7 +38,7 @@ function ProjectCard({ project }: Readonly<{ project: (typeof projects)[number] 
             style={{ color: "var(--text-muted)" }}
             aria-hidden
           >
-            {isLive ? <FiExternalLink /> : <FiGithub />}
+            {hasCaseStudy ? <FiArrowRight /> : isLive ? <FiExternalLink /> : <FiGithub />}
           </span>
         </div>
         <p
@@ -50,6 +55,30 @@ function ProjectCard({ project }: Readonly<{ project: (typeof projects)[number] 
           ))}
         </div>
       </div>
+    </>
+  );
+
+  if (hasCaseStudy) {
+    return (
+      <Link
+        href={`/projects/${project.caseStudy}`}
+        aria-label={`${project.title} - read the case study`}
+        className={className}
+      >
+        {body}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${project.title} - ${isLive ? "open live demo" : "view source on GitHub"}`}
+      className={className}
+    >
+      {body}
     </a>
   );
 }
