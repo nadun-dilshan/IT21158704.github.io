@@ -54,22 +54,44 @@ function ProjectCard({ project }: Readonly<{ project: (typeof projects)[number] 
   );
 }
 
+function ProjectGrid({ items }: Readonly<{ items: typeof projects }>) {
+  return (
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {items.map((project, i) => (
+        <Reveal key={project.title} delay={(i % 3) * 0.05} className="h-full">
+          <ProjectCard project={project} />
+        </Reveal>
+      ))}
+    </div>
+  );
+}
+
 export default function Projects() {
+  const featured = projects.filter((p) => p.featured);
+  const more = projects.filter((p) => !p.featured);
+
   return (
     <section
       id="projects"
       aria-label="Featured projects"
       className="mx-auto max-w-6xl px-6 py-24"
     >
-      <SectionHeading kicker="Projects">Selected work</SectionHeading>
+      <SectionHeading kicker="Projects">Products I&apos;ve built</SectionHeading>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project, i) => (
-          <Reveal key={project.title} delay={(i % 3) * 0.05} className="h-full">
-            <ProjectCard project={project} />
+      <ProjectGrid items={featured} />
+
+      {more.length > 0 && (
+        <>
+          <Reveal className="mt-16 mb-8">
+            <h3 className="section-heading text-2xl sm:text-3xl">More projects</h3>
+            <p className="mt-2 text-base" style={{ color: "var(--text-muted)" }}>
+              Earlier client, university, and open-source work.
+            </p>
           </Reveal>
-        ))}
-      </div>
+
+          <ProjectGrid items={more} />
+        </>
+      )}
     </section>
   );
 }
