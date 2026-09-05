@@ -16,7 +16,7 @@ export default function About() {
       className="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 py-24 lg:flex-row lg:gap-20"
     >
       <Reveal className="w-full max-w-sm shrink-0 lg:max-w-md">
-        <div className="card overflow-hidden rounded-3xl">
+        <div className="overflow-hidden rounded-3xl">
           <Image
             src={profile.aboutImage}
             alt={`${profile.name}, ${profile.role} at BotCalm, Sri Lanka`}
