@@ -20,7 +20,7 @@ const spaceGrotesk = Space_Grotesk({
 
 const TITLE = `${profile.name} - ${profile.role}`;
 const DESCRIPTION =
-  "Portfolio of Nadun Dilshan, an Associate Software Engineer specializing in full-stack development with Next.js, React, Node.js, Go, and PostgreSQL. Based in Malabe, Sri Lanka.";
+  "Portfolio of Nadun Dilshan, a Software Engineer specializing in full-stack development with Next.js, React, Node.js, Go, and PostgreSQL. Based in Malabe, Sri Lanka.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

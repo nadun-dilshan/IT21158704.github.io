@@ -3,9 +3,9 @@ import { profile } from "@/lib/data";
 import Reveal from "../Reveal";
 
 const stats = [
-  { value: "1.3+", label: "Years Experience" },
+  { value: "1.5+", label: "Years Professional Experience" },
+  { value: "4+", label: "Years Building Software" },
   { value: "15+", label: "Projects Delivered" },
-  { value: "7+", label: "Technologies" },
 ];
 
 export default function About() {

@@ -10,10 +10,10 @@ import {
 import {
   BiCodeAlt,
   BiServer,
-  BiMobileAlt,
-  BiData,
-  BiPalette,
+  BiLayer,
   BiRocket,
+  BiBot,
+  BiCoinStack,
 } from "react-icons/bi";
 
 /* -------------------------------------------------------------------------- */
@@ -22,7 +22,7 @@ import {
 
 export const profile = {
   name: "Nadun Dilshan",
-  role: "Associate Software Engineer",
+  role: "Software Engineer",
   location: "Malabe, Sri Lanka",
   email: "hello@nadun.me",
   phone: "+94 76 522 0104",
@@ -32,11 +32,11 @@ export const profile = {
   avatar: "/images/nadun-dilshan.webp",
   aboutImage: "/images/nadun-dilshan-software-engineer.webp",
   tagline:
-    "Software Engineering graduate with 1.3+ years of industry experience designing, developing, and maintaining modern, scalable web applications.",
+    "Full-stack software engineer with 1.5+ years of professional experience and 4+ years building software - designing, developing, and shipping modern, scalable web products.",
   heroDescription:
     "I build full-stack products with Next.js, React, Node.js, Go, and PostgreSQL - with a strong focus on scalable architecture, clean code, and user-centric solutions.",
   about: [
-    "I'm a Software Engineering graduate with 1.3+ years of professional experience building full-stack web applications. I work across the stack with Next.js, React, Node.js, Express, Go, MongoDB, and PostgreSQL.",
+    "I'm a full-stack software engineer and Software Engineering graduate with 1.5+ years of professional experience and 4+ years building software, from freelance products to enterprise platforms. I work across the stack with Next.js, React, Node.js, Express, Go, MongoDB, and PostgreSQL.",
     "Currently an Associate Software Engineer at BotCalm (Pvt) Ltd, I've worked on scalable iGaming and compliance platform features - integrating payment gateways, identity verification, and event-driven email pipelines. I thrive in Agile teams and care deeply about clean, maintainable code.",
   ],
 };
@@ -55,7 +55,7 @@ export const socials: SocialLink[] = [
 ];
 
 export const heroRoles = [
-  "Associate Software Engineer",
+  "Full-Stack Software Engineer",
   "Full-Stack Developer",
   "Next.js & React Developer",
   "Go & Node.js Engineer",
@@ -171,39 +171,39 @@ export type Service = {
 export const services: Service[] = [
   {
     icon: BiCodeAlt,
-    title: "Front-End Development",
+    title: "Full-Stack Web Development",
     description:
-      "Responsive, accessible, and fast interfaces built with React, Next.js, Tailwind CSS, and Material UI.",
+      "End-to-end web products with Next.js, React, TypeScript, and Node.js - from responsive UI to production-ready backends.",
   },
   {
     icon: BiServer,
-    title: "Back-End Development",
+    title: "Backend & API Development",
     description:
-      "Robust server-side applications and secure APIs using Go, Node.js, Express, and Laravel.",
+      "Secure, scalable REST and GraphQL APIs and microservices with Go, Node.js, PostgreSQL, Kafka, and Docker.",
   },
   {
-    icon: BiData,
-    title: "Database Engineering",
+    icon: BiLayer,
+    title: "SaaS Development",
     description:
-      "Designing and optimizing relational and NoSQL databases with PostgreSQL and MongoDB for scale.",
+      "Multi-tenant SaaS platforms with authentication, role-based access, billing, and dashboards built to grow with your business.",
   },
   {
     icon: BiRocket,
-    title: "Payments & Integrations",
+    title: "Payment & Third-Party Integrations",
     description:
-      "Integrating payment gateways (Plaid, NowPayments, PayHere) and third-party services like Klaviyo & Shufti Pro.",
+      "Payment gateways (Plaid, NowPayments, PayHere) and services like Klaviyo, Shufti Pro, and WhatsApp wired into your product.",
   },
   {
-    icon: BiMobileAlt,
-    title: "Mobile Development",
+    icon: BiBot,
+    title: "AI & API Integrations",
     description:
-      "Native Android applications built with Kotlin and Android Studio for intuitive on-the-go experiences.",
+      "LLM-powered features such as AI assistants, product discovery, and automation integrated with modern AI APIs.",
   },
   {
-    icon: BiPalette,
-    title: "UI/UX Design",
+    icon: BiCoinStack,
+    title: "Web3 & Crypto Websites",
     description:
-      "Clean, user-centered designs prototyped in Figma that balance aesthetics with usability.",
+      "Polished token, NFT, and crypto project sites with wallet connection, collection explorers, and interactive mint flows.",
   },
 ];
 
@@ -220,11 +220,14 @@ export type Project = {
   tags: string[];
   link: string;
   linkLabel?: string;
+  /** Shown in the large flagship grid; the rest go under "More projects". */
+  featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
     title: "Sellora - WhatsApp AI Commerce",
+    featured: true,
     description:
       "Multi-tenant SaaS that turns WhatsApp conversations into sales with multilingual AI product discovery, order taking, stock control, and merchant storefronts.",
     image: "/images/sellora-whatsapp-ai-commerce.webp",
@@ -236,6 +239,7 @@ export const projects: Project[] = [
   },
   {
     title: "Guardo - Authentication SDK",
+    featured: true,
     description:
     "A production-ready authentication SDK for Node.js & Next.js apps, with secure auth, encryption, and token handling packaged for easy integration.",
     image: "/images/guardo-authentication-sdk.webp",
@@ -278,6 +282,7 @@ export const projects: Project[] = [
   },
   {
     title: "DOODLZ - Web3 Token Site",
+    featured: true,
     description:
       "A playful, illustration-led Web3 concept with an original character system, collection explorer, rarity views, and an interactive demo mint experience.",
     image: "/images/doodlz-web3-token-site.png",
